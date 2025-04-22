@@ -28,7 +28,7 @@ public class TilingProblem {
     }
 
     public static void main(String[] args) {
-//        System.out.println(tiling2xn(5));
+//        System.out.println(tiling2xn(5○○));
 
         System.out.println(tiling4xn(5));
     }
