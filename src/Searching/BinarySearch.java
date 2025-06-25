@@ -27,8 +27,38 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,6,7,8,9};
-        System.out.println(search(arr, 8));
-        System.out.println(Arrays.toString(arr));
+        int[] arr = {9,8,7,6,5,4,3,2,1,0};
+//        System.out.println(search(arr, 8));
+//        System.out.println(Arrays.toString(arr));
+        System.out.println(orderAgosticBS(arr,9));
+    }
+
+
+    static int orderAgosticBS(int[] nums, int target) {
+        int s = 0;
+        int end = nums.length - 1;
+
+        //find whether the array is ascending or descending
+        boolean isAsc = nums[s] < nums[end];
+
+        while (s<=end){
+            int mid = s + (end - s) / 2;
+            if (nums[mid] == target) return mid;
+
+            if (isAsc) {
+                if (target < nums[mid]) {
+                    end = mid - 1;
+                } else if (target > nums[mid]) {
+                    s = mid + 1;
+                }
+            } else {
+                if (target > nums[mid]) {
+                    end = mid - 1;
+                } else if (target < nums[mid]) {
+                    s = mid + 1;
+                }
+            }
+        }
+        return -1;
     }
 }
